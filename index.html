@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abyssal Flora 3D — Deep-Sea Bioluminescence</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Canvas 3D Laut Dalam -->
+    <div id="canvas-container"></div>
+
+    <!-- Overlay Antarmuka -->
+    <div class="ui-wrapper">
+        <!-- Header Navigasi -->
+        <header class="abyss-header">
+            <div class="brand">
+                <span class="pulse-orb"></span>
+                <h1>ABYSSAL <span class="teal-text">FLORA</span></h1>
+            </div>
+            <nav class="nav-buttons" id="nav-menu">
+                <button class="nav-btn active" data-page="abyss">Zona Palung</button>
+                <button class="nav-btn" data-page="aurelia">Moon Jelly</button>
+                <button class="nav-btn" data-page="anemone">Crystal Anemone</button>
+                <button class="nav-btn" data-page="gorgonian">Violet Coral</button>
+                <button class="nav-btn" data-page="atolla">Atolla Crown</button>
+            </nav>
+        </header>
+
+        <!-- Panel Informasi Spesies -->
+        <main class="content-area">
+            <div class="abyss-card" id="info-card">
+                <div class="card-top">
+                    <span class="depth-badge" id="page-depth">KEDALAMAN: 1.200M</span>
+                    <span class="glow-tag" id="page-glow-type">BIOLUMINESENS</span>
+                </div>
+                <h2 id="page-title">Taman Bioluminesens</h2>
+                <p class="scientific-name" id="page-latin">Bathypelagic Ecosystem</p>
+                <p class="description" id="page-desc">
+                    Menyelam ke zona gelap samudra tempat organisme menghasilkan cahayanya sendiri. Klik tombol spesies untuk mengamati bentuk dan denyut cahaya yang berbeda.
+                </p>
+
+                <div class="specs-grid" id="page-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">Spektrum Cahaya</span>
+                        <span class="spec-value">Turquoise & Violet</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Pola Gerak</span>
+                        <span class="spec-value">Arus Pelagis Lambat</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="nextPage()">Spesies Berikutnya →</button>
+                    <button class="btn-secondary" id="toggle-pulse">Mode Arus: Tenang</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="abyss-footer">
+            <p>Drag untuk memutar sudut pandang • Scroll untuk mendekati organisme 3D</p>
+        </footer>
+    </div>
+
+    <!-- Three.js & OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
