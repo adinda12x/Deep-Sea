@@ -1,0 +1,256 @@
+:root {
+    --abyss-bg: #020617;
+    --deep-teal: #042f2e;
+    --turquoise: #2dd4bf;
+    --violet: #c084fc;
+    --pearl-white: #f0f9ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at 50% 30%, #07192f 0%, var(--abyss-bg) 85%);
+    color: var(--pearl-white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#canvas-container {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+}
+
+.ui-wrapper {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem;
+    pointer-events: none;
+}
+
+/* Header */
+.abyss-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: rgba(2, 6, 23, 0.55);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(45, 212, 191, 0.25);
+    padding: 0.85rem 1.75rem;
+    border-radius: 50px;
+    pointer-events: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.pulse-orb {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--turquoise);
+    box-shadow: 0 0 14px var(--turquoise), 0 0 24px var(--violet);
+    animation: orbPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes orbPulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.35); opacity: 1; }
+}
+
+.brand h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.teal-text {
+    color: var(--turquoise);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(192, 132, 252, 0.25);
+    color: #cbd5e1;
+    padding: 0.48rem 1.05rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.84rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    border-color: var(--turquoise);
+    color: var(--pearl-white);
+    box-shadow: 0 0 15px rgba(45, 212, 191, 0.35);
+}
+
+.nav-btn.active {
+    background: linear-gradient(135deg, var(--turquoise), #0d9488);
+    color: #020617;
+    border-color: #99f6e4;
+    box-shadow: 0 0 20px rgba(45, 212, 191, 0.55);
+}
+
+/* Kartu Konten */
+.content-area {
+    display: flex;
+    align-items: center;
+    max-width: 460px;
+}
+
+.abyss-card {
+    background: rgba(2, 6, 23, 0.68);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(45, 212, 191, 0.22);
+    border-left: 4px solid var(--violet);
+    padding: 2rem;
+    border-radius: 22px;
+    pointer-events: auto;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 0 25px rgba(45, 212, 191, 0.06);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.card-top {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+    flex-wrap: wrap;
+}
+
+.depth-badge {
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
+    color: var(--turquoise);
+    background: rgba(45, 212, 191, 0.14);
+    padding: 0.28rem 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.glow-tag {
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
+    color: var(--violet);
+    background: rgba(192, 132, 252, 0.14);
+    padding: 0.28rem 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.abyss-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    color: var(--pearl-white);
+    text-shadow: 0 0 18px rgba(45, 212, 191, 0.45);
+    margin-bottom: 0.2rem;
+}
+
+.scientific-name {
+    font-style: italic;
+    color: #99f6e4;
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin-bottom: 1.4rem;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.spec-label {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--violet);
+    margin-bottom: 0.15rem;
+}
+
+.spec-value {
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--pearl-white);
+}
+
+/* Tombol Aksi */
+.action-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--violet), #7e22ce);
+    color: var(--pearl-white);
+    border: none;
+    padding: 0.75rem 1.3rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(192, 132, 252, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 26px rgba(192, 132, 252, 0.7);
+}
+
+.btn-secondary {
+    background: rgba(45, 212, 191, 0.1);
+    color: #99f6e4;
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    padding: 0.75rem 1.1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(45, 212, 191, 0.22);
+}
+
+.abyss-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(148, 163, 184, 0.65);
+}
+
+@media (max-width: 768px) {
+    .ui-wrapper { padding: 1rem; }
+    .abyss-header { border-radius: 20px; justify-content: center; }
+    .content-area { max-width: 100%; }
+}
